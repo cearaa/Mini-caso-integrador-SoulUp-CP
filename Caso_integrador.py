@@ -59,6 +59,16 @@ def exibir_subtitulo(texto):
     print()
 
 #Cansei de explica as funções hahaha
+
+def calcular_pontuacao_acao(valor):
+    # regra simples: cada valor gera 10 pontos
+    return valor * 10
+
+
+def converter_pontos_em_credito(pontos):
+    # regra simples: cada ponto vale 0.5 de crédito
+    return pontos * 0.5
+
 def converter_pontos_metro():
     exibir_subtitulo("Conversor de pontos de metrô")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
