@@ -103,14 +103,18 @@ def converter_pontos_onibus():
     tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
     print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
     try:
-        valor = float(input("Digite o valor da passagem: "))
+        valor = float(input("Digite o valor da ação (R$): "))
         pontos = calcular_pontuacao(valor)
         credito = converter_pontos_em_credito(pontos)
-        print(f"\nPontos calculados: {pontos}")
-        print(f"Equivalente em crédito (passagens): R$ {credito:.2f}")
+        valor_passagem = 5.40
+        passagens = int(credito // valor_passagem)
+
+        print(f"\nPontos gerados: {pontos}")
+        print(f"Crédito total: R$ {credito:.2f}")
+        print(f"Você pode resgatar {passagens} passagens de metrô (R$ {valor_passagem})")
+
     except:
         print("Erro: digite um número válido.")
-
     voltar_ao_menu_principal()
 
 def scan_almas():
