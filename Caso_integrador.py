@@ -54,18 +54,16 @@ def exibir_subtitulo(texto):
 def converter_pontos_metro():
     exibir_subtitulo("Conversor de pontos de metrô")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
-    tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...")
-    dados_coletados = {"Pontuação": pontuacao, "Tipo de transporte": tipo_metro}
-    print("Seus dados foram coletados com sucesso!! Verifique-os: ", dados_coletados)
+    tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
+    print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_metro)
 
     voltar_ao_menu_principal()
 
 def converter_pontos_onibus():
     exibir_subtitulo("Conversor de pontos de onibus")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
-    tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...")
-    dados_coletados = {"Pontuação": pontuacao, "Tipo de transporte": tipo_onibus}
-    print("Seus dados foram coletados com sucesso!! Verifique-os: ", dados_coletados)
+    tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
+    print("znSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus
 
     voltar_ao_menu_principal()
 
@@ -107,6 +105,7 @@ def main():
     exibir_nome_programa()
     usuario_info()
     mostrar_menu()
+    escolher_opcao()
 
 
 if __name__ == '__main__':
