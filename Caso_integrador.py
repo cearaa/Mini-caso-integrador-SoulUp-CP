@@ -77,9 +77,6 @@ def converter_pontos_em_credito(pontos):
 
 def converter_pontos_metro():
     exibir_subtitulo("Conversor de pontos de metrô")
-    pontuacao = input("Digite sua pontuação na SoulUp: ")
-    tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
-    print("\nSeus dados foram coletados com sucesso!!\nPontuação: ", pontuacao," | ",  "Tipo de transporte: ", tipo_metro)
     try:
         pontos = float(input("Digite seus pontos da SoulUp: "))
 
@@ -87,18 +84,18 @@ def converter_pontos_metro():
         credito = converter_pontos_em_credito(pontos)
         valor_passagem = 5.40
         passagens = int(credito // valor_passagem)
+        resto = credito % valor_passagem
+
         print(f"\nPontos informados: {pontos}")
         print(f"Crédito total: R$ {credito:.2f}")
         print(f"Você pode resgatar {passagens} passagens de metrô (R$ {valor_passagem})")
+        print(f"Sobra de crédito: R$ {resto:.2f}")
     except:
         print("Erro: digite um número válido.")
     voltar_ao_menu_principal()
 
 def converter_pontos_onibus():
     exibir_subtitulo("Conversor de pontos de Ônibus")
-    pontuacao = input("Digite sua pontuação na SoulUp: ")
-    tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
-    print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
     try:
         pontos = float(input("Digite seus pontos da SoulUp: "))
 
@@ -106,9 +103,11 @@ def converter_pontos_onibus():
         credito = converter_pontos_em_credito(pontos)
         valor_passagem = 5.30
         passagens = int(credito // valor_passagem)
+        resto = credito % valor_passagem
         print(f"\nPontos informados: {pontos}")
         print(f"Crédito total: R$ {credito:.2f}")
         print(f"Você pode resgatar {passagens} passagens de ônibus (R$ {valor_passagem})")
+        print(f"Sobra de crédito: R$ {resto:.2f}")
     except:
         print("Erro: digite um número válido.")
     voltar_ao_menu_principal()
