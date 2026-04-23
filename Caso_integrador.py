@@ -1,5 +1,13 @@
 import os
 
+#Professor, metade deste projeto foi usando conceitos de uma trilha da Alura, especifica para funções.
+#Integrantes da Challenge
+#Tárik Moussa Alma - RM: 571411
+#Giovanni - RM: 569750
+#Fabricio Aquiles Sales da Silva - RM: 570985
+#Carlos Eduardo - RM:
+#Ítalo - RM:
+
 #Função para quando limpar com cls, aparecer essa imagem.
 def exibir_nome_programa():
     print("""
@@ -21,18 +29,18 @@ def exibir_nome_programa():
 def usuario_info():
     print("\nBem vindo ao conversor de pontos da SoulUp. Aqui você pode trocar seus pontos por passagens!!")
     nome_login = input("\nDigite seu nome de login: ")
-    email = input("Digíte seu e-mail para notificações: ")
-    print(f"\nBem vindo {nome_login}! Você tem {email} pontos para troca. Agora nos informe o que você precisa.")
+    email = input("Digíte seu e-mail: ")
+    print(f"\nBem vindo {nome_login}!! Agora nos informe o que você precisa.")
 
 #Função para exibir opções
 def mostrar_menu():
     os.system('cls')
     exibir_nome_programa()
-    print("\nInfotmações recebidas, agora tecle no menu a sua necessidade!!\n\n")
+    print("\nInformações recebidas, agora tecle no menu a sua necessidade!!\n\n")
     print("---------------------------------- Menu -------------------------------------------")
     print("\n1. Converter pontos em passagens de metrô.")
     print("2. Converter seus pontos em passagens de ônibus.")
-    print("3. Suporte ede fantasminhas da SoulUp.")
+    print("3. Suporte de fantasminhas da SoulUp.")
     print("4. Sair.\n")
 
 #Função para retorno ao menu com tecla qualquer
@@ -60,47 +68,57 @@ def exibir_subtitulo(texto):
 
 #Cansei de explica as funções hahaha
 
-def calcular_pontuacao_acao(valor):
-    # regra simples: cada valor gera 10 pontos
+def calcular_pontuacao(valor):
+    #regra simples: cada 10 pontos = R$1
     return valor * 10
 
-
 def converter_pontos_em_credito(pontos):
-    # regra simples: cada ponto vale 0.5 de crédito
+    #regra simples de exemplo: cada ponto vale R$0,50
     return pontos * 0.5
 
 def converter_pontos_metro():
     exibir_subtitulo("Conversor de pontos de metrô")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
     tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
-    print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_metro)
+    print("\nSeus dados foram coletados com sucesso!!\nPontuação: ", pontuacao," | ",  "Tipo de transporte: ", tipo_metro)
     try:
-        valor = float(input("Digite o valor da ação: "))
-        pontos = calcular_pontuacao_acao(valor)
+        valor = float(input("Digite o valor da ação (R$): "))
+        pontos = calcular_pontuacao(valor)
         credito = converter_pontos_em_credito(pontos)
 
-        print(f"\nPontos calculados: {pontos}")
-        print(f"Equivalente em crédito (passagens): R$ {credito:.2f}")
+        valor_passagem = 5.40
+        passagens = int(credito // valor_passagem)
 
+        print(f"\nPontos gerados: {pontos}")
+        print(f"Crédito total: R$ {credito:.2f}")
+        print(f"Você pode resgatar {passagens} passagens de metrô (R$ {valor_passagem})")
     except:
         print("Erro: digite um número válido.")
-
-        voltar_ao_menu_principal()
+    voltar_ao_menu_principal()
 
 
 def converter_pontos_onibus():
-    exibir_subtitulo("Conversor de pontos de onibus")
+    exibir_subtitulo("Conversor de pontos de Ônibus")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
     tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
-    print("znSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
+    print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
+    try:
+        valor = float(input("Digite o valor da passagem: "))
+        pontos = calcular_pontuacao(valor)
+        credito = converter_pontos_em_credito(pontos)
+        print(f"\nPontos calculados: {pontos}")
+        print(f"Equivalente em crédito (passagens): R$ {credito:.2f}")
+    except:
+        print("Erro: digite um número válido.")
 
     voltar_ao_menu_principal()
 
 def scan_almas():
     exibir_subtitulo("Scan de Fantasminhas Soulp")
-    tipo_alma = input("Dígite a raridade da alma scaneada: ")
+    tipo_alma = input("Dígite a raridade do Fantasminha scaneada: ")
     local_scan = input("Digite a estação ou lugar que o Fantasminha foi coletado: ")
     print("\nEspere um pêriodo de 24h para outra solicitação. Mais informações via e-mail.")
+    print("Verifique as informações digitadas!  |  Raridade do fantasminha: ", tipo_alma, "Local de escaneamento: ", local_scan)
 
     voltar_ao_menu_principal()
 
@@ -123,7 +141,7 @@ def escolher_opcao():
 
 #Função para execução em ordem desejada e execução da Main.
 def main():
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
     exibir_nome_programa()
     usuario_info()
     mostrar_menu()
