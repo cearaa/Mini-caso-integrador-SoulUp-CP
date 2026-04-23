@@ -34,7 +34,7 @@ def usuario_info():
 
 #Função para exibir opções
 def mostrar_menu():
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
     exibir_nome_programa()
     print("\nInformações recebidas, agora tecle no menu a sua necessidade!!\n\n")
     print("---------------------------------- Menu -------------------------------------------")
@@ -59,7 +59,7 @@ def opcao_invalida():
 
 #Função para que após apague com cls, retorne a opção escolhida com print automátic0
 def exibir_subtitulo(texto):
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
     linha = '*' * (len(texto))
     print(linha)
     print(texto)
@@ -82,7 +82,7 @@ def converter_pontos_metro():
     tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
     print("\nSeus dados foram coletados com sucesso!!\nPontuação: ", pontuacao," | ",  "Tipo de transporte: ", tipo_metro)
     try:
-        valor = float(input("Digite o valor da ação (R$): "))
+        valor = float(input("\nDigite o valor da ação (R$): "))
         pontos = calcular_pontuacao(valor)
         credito = converter_pontos_em_credito(pontos)
 
@@ -106,19 +106,19 @@ def converter_pontos_onibus():
         valor = float(input("Digite o valor da ação (R$): "))
         pontos = calcular_pontuacao(valor)
         credito = converter_pontos_em_credito(pontos)
-        valor_passagem = 5.40
+        valor_passagem = 5.30
         passagens = int(credito // valor_passagem)
 
         print(f"\nPontos gerados: {pontos}")
         print(f"Crédito total: R$ {credito:.2f}")
-        print(f"Você pode resgatar {passagens} passagens de metrô (R$ {valor_passagem})")
+        print(f"Você pode resgatar {passagens} passagens de ônibus (R$ {valor_passagem})")
 
     except:
         print("Erro: digite um número válido.")
     voltar_ao_menu_principal()
 
 def scan_almas():
-    exibir_subtitulo("Scan de Fantasminhas Soulp")
+    exibir_subtitulo("Scan de Fantasminhas SoulUp")
     tipo_alma = input("Dígite a raridade do Fantasminha scaneada: ")
     local_scan = input("Digite a estação ou lugar que o Fantasminha foi coletado: ")
     print("\nEspere um pêriodo de 24h para outra solicitação. Mais informações via e-mail.")
