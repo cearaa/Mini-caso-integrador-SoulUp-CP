@@ -46,7 +46,7 @@ def finalizar_app():
 
 #Func de erro
 def opcao_invalida():
-    print('Opção inválida!\n')
+    print('Erro: opção inválida!\n')
     voltar_ao_menu_principal()
 
 #Função para que após apague com cls, retorne a opção escolhida com print automátic0
@@ -74,8 +74,19 @@ def converter_pontos_metro():
     pontuacao = input("Digite sua pontuação na SoulUp: ")
     tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
     print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_metro)
+    try:
+        valor = float(input("Digite o valor da ação: "))
+        pontos = calcular_pontuacao_acao(valor)
+        credito = converter_pontos_em_credito(pontos)
 
-    voltar_ao_menu_principal()
+        print(f"\nPontos calculados: {pontos}")
+        print(f"Equivalente em crédito (passagens): R$ {credito:.2f}")
+
+    except:
+        print("Erro: digite um número válido.")
+
+        voltar_ao_menu_principal()
+
 
 def converter_pontos_onibus():
     exibir_subtitulo("Conversor de pontos de onibus")
@@ -110,21 +121,13 @@ def escolher_opcao():
         opcao_invalida()
 
 
-
-
-
-
-
-
-
-
+#Função para execução em ordem desejada e execução da Main.
 def main():
     os.system('cls')
     exibir_nome_programa()
     usuario_info()
     mostrar_menu()
     escolher_opcao()
-
 
 if __name__ == '__main__':
     main()
