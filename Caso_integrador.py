@@ -68,9 +68,8 @@ def exibir_subtitulo(texto):
 
 #Cansei de explica as funções hahaha
 
-def calcular_pontuacao(valor):
-    #regra simples: cada 10 pontos = R$1
-    return valor * 10
+def calcular_pontuacao(pontos):
+    return pontos
 
 def converter_pontos_em_credito(pontos):
     #regra simples de exemplo: cada ponto vale R$0,50
@@ -82,20 +81,18 @@ def converter_pontos_metro():
     tipo_metro = input("Digite o nome do seu tipo de serviço de transporte (CPTM/Metrô/SPTrans/EMTU/TOP...): ")
     print("\nSeus dados foram coletados com sucesso!!\nPontuação: ", pontuacao," | ",  "Tipo de transporte: ", tipo_metro)
     try:
-        valor = float(input("\nDigite o valor da ação (R$): "))
-        pontos = calcular_pontuacao(valor)
-        credito = converter_pontos_em_credito(pontos)
+        pontos = float(input("Digite seus pontos da SoulUp: "))
 
+        pontos = calcular_pontuacao(pontos)
+        credito = converter_pontos_em_credito(pontos)
         valor_passagem = 5.40
         passagens = int(credito // valor_passagem)
-
-        print(f"\nPontos gerados: {pontos}")
+        print(f"\nPontos informados: {pontos}")
         print(f"Crédito total: R$ {credito:.2f}")
         print(f"Você pode resgatar {passagens} passagens de metrô (R$ {valor_passagem})")
     except:
         print("Erro: digite um número válido.")
     voltar_ao_menu_principal()
-
 
 def converter_pontos_onibus():
     exibir_subtitulo("Conversor de pontos de Ônibus")
@@ -103,16 +100,15 @@ def converter_pontos_onibus():
     tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
     print("\nSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
     try:
-        valor = float(input("Digite o valor da ação (R$): "))
-        pontos = calcular_pontuacao(valor)
+        pontos = float(input("Digite seus pontos da SoulUp: "))
+
+        pontos = calcular_pontuacao(pontos)
         credito = converter_pontos_em_credito(pontos)
         valor_passagem = 5.30
         passagens = int(credito // valor_passagem)
-
-        print(f"\nPontos gerados: {pontos}")
+        print(f"\nPontos informados: {pontos}")
         print(f"Crédito total: R$ {credito:.2f}")
         print(f"Você pode resgatar {passagens} passagens de ônibus (R$ {valor_passagem})")
-
     except:
         print("Erro: digite um número válido.")
     voltar_ao_menu_principal()
