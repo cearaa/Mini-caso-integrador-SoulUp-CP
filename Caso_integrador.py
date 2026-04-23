@@ -61,9 +61,13 @@ def opcao_invalida():
 def exibir_subtitulo(texto):
     os.system('cls' if os.name == 'nt' else 'clear')
     linha = '*' * (len(texto))
+    print()
+    print()
+    print()
     print(linha)
     print(texto)
     print(linha)
+    print()
     print()
 
 #Cansei de explica as funções hahaha
