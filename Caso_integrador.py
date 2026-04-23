@@ -1,5 +1,6 @@
 import os
 
+#Função para quando limpar com cls, aparecer essa imagem.
 def exibir_nome_programa():
     print("""
 ░█████╗░░█████╗░███╗░░██╗██╗░░░██╗███████╗██████╗░░██████╗░█████╗░██████╗░  ██████╗░███████╗
@@ -16,12 +17,14 @@ def exibir_nome_programa():
 ██║░░░░░╚█████╔╝██║░╚███║░░░██║░░░╚█████╔╝██████╔╝  ██████╔╝╚█████╔╝╚██████╔╝███████╗╚██████╔╝██║░░░░░
 ╚═╝░░░░░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░░╚════╝░╚═════╝░  ╚═════╝░░╚════╝░░╚═════╝░╚══════╝░╚═════╝░╚═╝░░░░░""")
 
+#Função para retornar em ordem na main e priorizar a imagem.
 def usuario_info():
     print("\nBem vindo ao conversor de pontos da SoulUp. Aqui você pode trocar seus pontos por passagens!!")
     nome_login = input("\nDigite seu nome de login: ")
     email = input("Digíte seu e-mail para notificações: ")
     print(f"\nBem vindo {nome_login}! Você tem {email} pontos para troca. Agora nos informe o que você precisa.")
 
+#Função para exibir opções
 def mostrar_menu():
     os.system('cls')
     exibir_nome_programa()
@@ -29,20 +32,24 @@ def mostrar_menu():
     print("---------------------------------- Menu -------------------------------------------")
     print("\n1. Converter pontos em passagens de metrô.")
     print("2. Converter seus pontos em passagens de ônibus.")
-    print("3. Setor de fantasminhas da SoulUp.")
+    print("3. Suporte ede fantasminhas da SoulUp.")
     print("4. Sair.\n")
 
+#Função para retorno ao menu com tecla qualquer
 def voltar_ao_menu_principal():
     input('\nDigite uma tecla para voltar ao menu ')
     main()
 
+#Função para retornar o app finalizado após operação.
 def finalizar_app():
     exibir_subtitulo('Finalizar app')
 
+#Func de erro
 def opcao_invalida():
     print('Opção inválida!\n')
     voltar_ao_menu_principal()
 
+#Função para que após apague com cls, retorne a opção escolhida com print automátic0
 def exibir_subtitulo(texto):
     os.system('cls')
     linha = '*' * (len(texto))
@@ -51,6 +58,7 @@ def exibir_subtitulo(texto):
     print(linha)
     print()
 
+#Cansei de explica as funções hahaha
 def converter_pontos_metro():
     exibir_subtitulo("Conversor de pontos de metrô")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
@@ -63,7 +71,7 @@ def converter_pontos_onibus():
     exibir_subtitulo("Conversor de pontos de onibus")
     pontuacao = input("Digite sua pontuação na SoulUp: ")
     tipo_onibus = input("Digite o nome do seu tipo de serviço de transporte (/SPTrans/EMTU/TOP/Fretamento...): ")
-    print("znSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus
+    print("znSeus dados foram coletados com sucesso!!\n Pontuação: ", pontuacao, "Tipo de transporte: ", tipo_onibus)
 
     voltar_ao_menu_principal()
 
