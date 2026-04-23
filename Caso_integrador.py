@@ -76,6 +76,7 @@ def converter_pontos_em_credito(pontos):
     return pontos * 0.5
 
 def converter_pontos_metro():
+    exibir_nome_programa()
     exibir_subtitulo("Conversor de pontos de metrô")
     try:
         pontos = float(input("Digite seus pontos da SoulUp: "))
@@ -95,6 +96,7 @@ def converter_pontos_metro():
     voltar_ao_menu_principal()
 
 def converter_pontos_onibus():
+    exibir_nome_programa()
     exibir_subtitulo("Conversor de pontos de Ônibus")
     try:
         pontos = float(input("Digite seus pontos da SoulUp: "))
@@ -113,6 +115,7 @@ def converter_pontos_onibus():
     voltar_ao_menu_principal()
 
 def scan_almas():
+    exibir_nome_programa()
     exibir_subtitulo("Scan de Fantasminhas SoulUp")
     tipo_alma = input("Dígite a raridade do Fantasminha scaneada: ")
     local_scan = input("Digite a estação ou lugar que o Fantasminha foi coletado: ")
