@@ -29,12 +29,15 @@ def mostrar_menu():
     print("---------------------------------- Menu -------------------------------------------")
     print("\n1. Converter pontos em passagens de metrô.")
     print("2. Converter seus pontos em passagens de ônibus.")
-    print("3. Juntar almas.")
+    print("3. Setor de fantasminhas da SoulUp.")
     print("4. Sair.\n")
 
 def voltar_ao_menu_principal():
     input('\nDigite uma tecla para voltar ao menu ')
     main()
+
+def finalizar_app():
+    exibir_subtitulo('Finalizar app')
 
 def opcao_invalida():
     print('Opção inválida!\n')
@@ -66,10 +69,33 @@ def converter_pontos_onibus():
 
     voltar_ao_menu_principal()
 
-def
-#def escolher_menu():
-#    try:
-#        if opcao_escolhida == 1
+def scan_almas():
+    exibir_subtitulo("Scan de Fantasminhas Soulp")
+    tipo_alma = input("Dígite a raridade da alma scaneada: ")
+    local_scan = input("Digite a estação ou lugar que o Fantasminha foi coletado: ")
+    print("\nEspere um pêriodo de 24h para outra solicitação. Mais informações via e-mail.")
+
+    voltar_ao_menu_principal()
+
+def escolher_opcao():
+    try:
+        opcao_escolhida = int(input("Escolha uma opção: "))
+        if opcao_escolhida == 1:
+            converter_pontos_metro()
+        elif opcao_escolhida == 2:
+            converter_pontos_onibus()
+        elif opcao_escolhida == 3:
+            scan_almas()
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida()
+
+
+
+
 
 
 
